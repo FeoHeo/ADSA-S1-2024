@@ -20,14 +20,11 @@ int main() {
     int B;
 
     //Takes I1, I2 and B input
-    std::cout << "Input 1: "; std::cin >> I1;
-    printf("\n");
+    std::cin >> I1;
 
-    std::cout << "Input I2: "; std::cin >> I2;
-    printf("\n");
+    std::cin >> I2;
 
-    std::cout << "Input Base: "; std::cin >> B;
-    printf("\n");
+    std::cin >> B;
 
     //Calling the functions to do the work
     std::cout << schoolAdd(I1,I2,B) << " " << karatsubaMul(I1,I2,B) << " " << 0 << std::endl;
@@ -54,6 +51,7 @@ int schoolAdd(int I1_in , int I2_in , int B_in) {
 int schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_in , int B_in) {
     int B_temp = B_in;
     int carry = 0;
+    int temp_sum = 0;
     int add_return = 0;
 
 
@@ -68,9 +66,15 @@ int schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_in , int B_in)
     }
 
     for(int i=0 ; i<I2_in.size() ; i++) {
-        add_return = add_return + ((I1_in[i] + I2_in[i] + carry) % B_temp) * pow(B_temp,i);
-        carry = (I1_in[i] + I2_in[i] + carry) / B_temp;
-        pow(B_temp,i);
+        // add_return = add_return + ((I1_in[i] + I2_in[i] + carry) % B_temp) * pow(B_temp,i);
+        // carry = (I1_in[i] + I2_in[i] + carry) / B_temp;
+        // pow(B_temp,i);
+        temp_sum = I1_in[i] + I2_in[i] + carry;
+        carry = temp_sum / B_temp;
+
+        int digit = temp_sum % B_temp;
+        add_return += digit * pow(B_temp,int(I2_in.size()) - 1 - i);
+
     }
 
     return add_return;
@@ -94,7 +98,7 @@ int karatsubaMul_recurse(std::vector<int> I1_in , std::vector<int> I2_in , int B
 
     int maxDigit;
     //Calculate number of digits in the number
-    if(I1_in.size() - I2_in.size() >= 0) {   //Take the largest amount of digits
+    if(int(I1_in.size()) - int(I2_in.size()) >= 0) {   //Take the largest amount of digits, I put type int here cause sometimes it is interpretted as another type, causing issues
         maxDigit = I1_in.size();
     } else {
         maxDigit = I2_in.size();
