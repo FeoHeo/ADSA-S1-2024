@@ -1,0 +1,35 @@
+Q1:
+
+1. T
+2. F
+3. T
+4. T
+
+Q3: T
+
+Q4: T
+
+Q5: F - O(logn) only got better growth rate (which is lesser growth than n^2)
+
+Q6:
+
+1. f = O(g)
+2. f = Theta(g)
+3. f = O(g)
+4. f = O(g)
+5. f = Omega(g)
+6. f = Theta(g)
+
+
+
+
+
+Q2:
+
+1.
+
+f(n)/(cf(n)) = 1/c -> Theta(n) (because c != 0)
+
+2.
+
+
