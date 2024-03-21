@@ -10,8 +10,8 @@ void vect_print(std::vector<int> p_input);
 int schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_in , int B_in);
 
 //QoL functions for 2 functions
-std::vector<int> vectorOfDigits(int num_input);
-void vectorOfDigits_return(int num_input, std::vector<int>* vectReturn);
+std::vector<int> strToDigit(int num_input);
+void strToDigit_return(int num_input, std::vector<int>* vectReturn);
 
 int main() {
     int I2;
@@ -49,8 +49,8 @@ int schoolAdd(int I1_in , int I2_in) {
     std::cout << "Input B: "; std::cin >> B;
     printf("\n");
     //Prepare to do the algorithm
-    std::vector<int> I1_vect = vectorOfDigits(I1_in);
-    std::vector<int> I2_vect = vectorOfDigits(I2_in);
+    std::vector<int> I1_vect = strToDigit(I1_in);
+    std::vector<int> I2_vect = strToDigit(I2_in);
 
     /*
     What will be done: Post_c_vect vector will be saved and added together with the c_vect
@@ -88,16 +88,16 @@ int schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_in , int B_in)
 }
 
 //Will return a vector of digits recursively
-std::vector<int> vectorOfDigits(int num_input) {
+std::vector<int> strToDigit(int num_input) {
     std::vector<int> vectReturn;
 
-    vectorOfDigits_return(num_input , &vectReturn);
+    strToDigit_return(num_input , &vectReturn);
     return vectReturn;
 };
 
-void vectorOfDigits_return(int num_input , std::vector<int>* vectReturn) {
+void strToDigit_return(int num_input , std::vector<int>* vectReturn) {
     if(num_input >= 10) {
-        vectorOfDigits_return(num_input / 10 , vectReturn);
+        strToDigit_return(num_input / 10 , vectReturn);
     }
 
     vectReturn->push_back(num_input % 10);

@@ -4,12 +4,18 @@
 
 
 int main() {
-    std::vector<int> bigVect = {1,0};
-    std::vector<int>::const_iterator b = bigVect.begin()+1;
-    std::vector<int>::const_iterator e = bigVect.begin()+2;
-    std::vector<int> newVect = {b,e};
+    std::vector<int> newVect = {2,3};
+    std::string test = "24";
+
+    for(int i=0 ; i<test.size() ; i++) {
+        newVect.push_back(test[i] - 48);
+    }
+
+
     for(int i=0 ; i<newVect.size() ; i++) {
         std::cout << newVect[i] << std::endl;
     }
+    
+
     return 0;
 }
