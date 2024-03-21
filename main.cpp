@@ -72,9 +72,16 @@ std::vector<int> schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_i
     for(int i=0 ; i<I1_in.size() ; i++) {
         temp_sum = I1_in[i] + I2_in[i] + carry;
         carry = temp_sum / B_temp;
-
         int digit = temp_sum % B_temp;
         add_return.push_back(digit);
+    }
+
+    if(carry > 0) {
+        if(I1_in[0] + I2_in[0] + carry > B_in) {
+            add_return.insert(add_return.begin() , carry);
+        } else {
+            add_return[0] += carry;
+        }
 
     }
 

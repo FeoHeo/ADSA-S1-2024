@@ -4,18 +4,12 @@
 
 
 int main() {
-    std::vector<int> newVect = {2,3};
-    std::string test = "24";
+    std::vector<int> vect = {0};
+    vect.insert(vect.begin() , 1);
 
-    for(int i=0 ; i<test.size() ; i++) {
-        newVect.push_back(test[i] - 48);
+    for(int i=0 ; i<vect.size() ; i++) {
+        std::cout << vect[i] << std::endl;
     }
-
-
-    for(int i=0 ; i<newVect.size() ; i++) {
-        std::cout << newVect[i] << std::endl;
-    }
-    
 
     return 0;
 }
