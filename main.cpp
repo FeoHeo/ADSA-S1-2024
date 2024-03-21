@@ -77,11 +77,11 @@ std::vector<int> schoolAdd_return(std::vector<int> I1_in , std::vector<int> I2_i
     }
 
     if(carry > 0) {
-        if(I1_in[0] + I2_in[0] + carry > B_in) {
-            add_return.insert(add_return.begin() , carry);
-        } else {
+        // if(I1_in[0] + I2_in[0] + carry > B_in) {
+        //     add_return.insert(add_return.begin() , carry);
+        // } else {
             add_return[0] += carry;
-        }
+        //}
 
     }
 
